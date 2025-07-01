@@ -1,0 +1,58 @@
+:root {
+    --primaryFont: "Montserrat", sans-serif;
+    --secondaryFont: ".montserrat-thin", sans-serif;
+    --boldFont: ".montserrat-bold", sans-serif;
+}
+
+/* Montserrat Font Variations */
+
+.montserrat-thin {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+.montserrat-normal {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.montserrat-bold {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+
+header span {
+    display: block;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 25px;
+}
+
+nav a:hover {
+    text-decoration: underline 10px burlywood;
+
+}
