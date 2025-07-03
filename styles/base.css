@@ -1,6 +1,4 @@
 :root {
-
-
     /* Montserrat Font Variations */
     --primaryFont: "Montserrat", sans-serif;
     --thinFontWeight: 300;
@@ -11,9 +9,26 @@
     --primaryColor: burlywood;
     --secondaryColor: #98bd97;
     --textColor: black;
-
 }
 
+/* ========== GENERAL STRUCTURE ========== */
+
+body {
+    margin: 0;
+    background-color: var(--secondaryColor);
+    font-family: var(--primaryFont);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    background-color: var(--secondaryColor);
+}
+
+/* ========== HEADER STYLES ========== */
 
 header span {
     display: block;
@@ -26,7 +41,6 @@ header span {
     background-color: var(--primaryColor);
     border-bottom: 3px solid black;
 }
-
 
 nav {
     display: flex;
@@ -43,33 +57,37 @@ nav a {
     color: var(--textColor);
 }
 
-nav a:hover {
-    text-decoration: underline 10px var(--primaryColor);
-
+nav a:hover,
+li a:hover {
+    text-decoration: underline dashed 5px var(--primaryColor);
 }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: var(--primaryFont);
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
-    background-color: var(--secondaryColor);
-}
-
+/* ========== CARD STYLES ========== */
 
 .card {
     border: 3px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     border-radius: 12px;
     background-color: wheat;
     padding: 1rem;
     margin: 1rem;
     position: relative;
 }
+
+.card a {
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+.card li {
+    padding: 5px 0px;
+}
+
+.card img {
+    width: 250px;
+    height: auto;
+}
+
+/* ========== ABOUT ME SECTION ========== */
 
 .about-me h2 {
     position: absolute;
@@ -88,26 +106,72 @@ main {
 
 .about-content {
     background: wheat;
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+    padding: 1rem;
 }
+
+.about-content h1 {
+    text-align: center;
+    border-bottom: solid 2px black;
+    margin-left: 7rem;
+    margin-right: 7rem;
+}
+
+.img-subtext {
+    text-align: center;
+    margin-top: -8px;
+}
+
 
 .about-text {
     padding-top: 3rem;
     font-size: 18px;
 }
 
+
 .card img {
-    width: 500px;
-    height: auto;
-    padding: 4rem 1rem 1rem 1rem;
+    border-radius: 17px;
+    border: solid 2px black;
 }
 
-body {
-    margin: 0;
-    background-color: var(--secondaryColor);
+.upper-selfie {
+    margin-top: 4rem;
 }
 
+.lower-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+}
 
+.lower-content img {
+    width: 150px;
+}
+
+.lower-content p {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+/* ========== RESOURCE LINKS ========== */
+
+.resource-links {
+    text-decoration: none;
+    font-size: 19px;
+}
+
+.valuable-resources {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+/* ========== FOOTER STYLES ========== */
 
 footer {
     font-family: var(--primaryFont);
