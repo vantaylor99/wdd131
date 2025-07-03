@@ -1,58 +1,115 @@
 :root {
+
+
+    /* Montserrat Font Variations */
     --primaryFont: "Montserrat", sans-serif;
-    --secondaryFont: ".montserrat-thin", sans-serif;
-    --boldFont: ".montserrat-bold", sans-serif;
+    --thinFontWeight: 300;
+    --normalFontWeight: 500;
+    --boldFontWeight: 700;
+
+    /* Color Scheme */
+    --primaryColor: burlywood;
+    --secondaryColor: #98bd97;
+    --textColor: black;
+
 }
-
-/* Montserrat Font Variations */
-
-.montserrat-thin {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 200;
-    font-style: normal;
-}
-
-
-.montserrat-normal {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
-.montserrat-bold {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-}
-
-
 
 
 header span {
     display: block;
+    align-content: center;
+    text-align: center;
+    font-family: var(--primaryFont);
+    font-weight: var(--normalFontWeight);
+    font-size: 45px;
+    height: 100px;
+    background-color: var(--primaryColor);
+    border-bottom: 3px solid black;
 }
 
 
 nav {
     display: flex;
     justify-content: space-evenly;
-}
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
+    background-color: var(--secondaryColor);
+    font-family: var(--primaryFont);
+    font-weight: var(--boldFontWeight);
+    padding: 1rem;
 }
 
 nav a {
     text-decoration: none;
     font-size: 25px;
+    color: var(--textColor);
 }
 
 nav a:hover {
-    text-decoration: underline 10px burlywood;
+    text-decoration: underline 10px var(--primaryColor);
 
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: var(--primaryFont);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    background-color: var(--secondaryColor);
+}
+
+
+.card {
+    border: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 12px;
+    background-color: wheat;
+    padding: 1rem;
+    margin: 1rem;
+    position: relative;
+}
+
+.about-me h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primaryColor);
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 3px solid black;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.about-content {
+    background: wheat;
+    display: flex;
+}
+
+.about-text {
+    padding-top: 3rem;
+    font-size: 18px;
+}
+
+.card img {
+    width: 500px;
+    height: auto;
+    padding: 4rem 1rem 1rem 1rem;
+}
+
+body {
+    margin: 0;
+    background-color: var(--secondaryColor);
+}
+
+
+
+footer {
+    font-family: var(--primaryFont);
+    font-weight: var(--thinFontWeight);
 }
