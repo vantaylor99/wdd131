@@ -17,6 +17,11 @@ body {
     margin: 0;
     background-color: var(--secondaryColor);
     font-family: var(--primaryFont);
+
+}
+
+h1 {
+    font-size: 24px;
 }
 
 main {
@@ -113,11 +118,12 @@ li a:hover {
     padding: 1rem;
 }
 
-.about-content h1 {
+.card.about-me .about-content h1 {
     text-align: center;
     border-bottom: solid 2px black;
     margin-left: 7rem;
     margin-right: 7rem;
+    font-size: 24px;
 }
 
 .img-subtext {
@@ -176,4 +182,5 @@ li a:hover {
 footer {
     font-family: var(--primaryFont);
     font-weight: var(--thinFontWeight);
+    text-align: center;
 }
