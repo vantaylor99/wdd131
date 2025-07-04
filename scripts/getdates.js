@@ -7,8 +7,12 @@ const year = date.getFullYear();
 const lastModified = new Date(document.lastModified);
 
 
-// Convert from Military to standard time // 
+// Convert from Military to standard time and fix minutes less than 10// 
 let hours = lastModified.getHours();
+
+let minutes = lastModified.getMinutes();
+
+
 let ampm = 'AM';
 const user = 'Van Taylor';
 
@@ -17,11 +21,19 @@ if (hours >= 12) {
     if (hours >= 12) {
         hours = hours - 12;
     }
+    if (hours == 0) {
+        hours = 12;
+    }
+}
+
+if (minutes < 10) {
+    minutes = "0" + minutes;
 }
 
 
+
 // Format Date //
-const formattedDate = `${lastModified.getMonth() + 1}/${lastModified.getDay()}/${lastModified.getFullYear()} at ${hours}:${lastModified.getMinutes()} ${ampm} by ${user}`
+const formattedDate = `${lastModified.getMonth() + 1}/${lastModified.getDay()}/${lastModified.getFullYear()} at ${hours}:${minutes} ${ampm} by ${user}`
 
 
 // Display Results 
