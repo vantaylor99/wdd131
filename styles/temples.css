@@ -1,0 +1,129 @@
+:root {
+    /* ========== FONT VARIATIONS ========== */
+    --primaryFont: "Montserrat", sans-serif;
+    --thinFontWeight: 300;
+    --normalFontWeight: 500;
+    --boldFontWeight: 700;
+
+    /* ========== COLOR SCHEME ========== */
+    --primaryColor: burlywood;
+    --secondaryColor: #98bd97;
+    --tertiary: wheat;
+    --textColor: black;
+}
+
+/* ========== GENERAL STRUCTURE ========== */
+
+body {
+    margin: 0;
+    background-color: var(--secondaryColor);
+    font-family: var(--primaryFont);
+}
+
+h1 {
+    font-size: 24px;
+
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--secondaryColor);
+}
+
+main h1 {
+    padding: 1rem;
+}
+
+img {
+    border-radius: 15px;
+}
+
+/* ========== TEMPLE CONTAINER GRID ========== */
+
+.temple-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+/* ========== HEADER STYLES ========== */
+
+header {
+    display: grid;
+    grid-gap: 1rem;
+    padding: 20px;
+    box-shadow: 0 0 10px black;
+    background-color: var(--primaryColor);
+}
+
+
+/* ========== NAVIGATION ========== */
+
+nav {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+nav a {
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    color: black;
+}
+
+nav a:hover {
+    background-color: var(--tertiary);
+    color: black;
+}
+
+.active {
+    text-decoration: underline solid black 3px;
+}
+
+
+/* ========== HAMBURGER MENU ========== */
+
+#menu {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5 0.75rem;
+    background-color: var(--primaryColor);
+    color: black;
+}
+
+#menu::before {
+    content: "≡";
+}
+
+#menu.show::before {
+    content: "X";
+}
+
+/* ========== NAVIGATION TOGGLE DISPLAY ========== */
+
+.navigation {
+    display: none;
+}
+
+.navigation.show {
+    display: flex;
+}
+
+/* ========== FOOTER ========== */
+
+footer {
+    text-align: center;
+    background-color: var(--primaryColor);
+    box-shadow: 0 -1px 5px black;
+}

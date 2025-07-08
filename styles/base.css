@@ -8,6 +8,7 @@
     /* Color Scheme */
     --primaryColor: burlywood;
     --secondaryColor: #98bd97;
+    --tertiary: wheat;
     --textColor: black;
 }
 
@@ -72,7 +73,7 @@ li a:hover {
 .card {
     border: 3px solid black;
     border-radius: 12px;
-    background-color: wheat;
+    background-color: var(--tertiary);
     padding: 1rem;
     margin: 1rem;
     position: relative;
