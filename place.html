@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Place</title>
+    <meta name="description" content="This is a webpage about my favorite place">
+    <meta name="author" content="Van Taylor">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/place.css">
+    <link rel="stylesheet" href="styles/place-small.css">
+
+    <!-- scripts -->
+    <script src="scripts/getdates.js" defer></script>
+    <script src="scripts/place.js" defer></script>
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font API -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+    <header>
+        <h1>Time Square New York</h1>
+    </header>
+
+    <main>
+        <div class="hero">
+            <picture>
+                <source media="(min-width: 1000px)" srcset="images/place-hero-large.webp">
+                <source media="(min-width: 550px)" srcset="images/place-hero-medium.webp">
+                <img src="images/place-hero-small.webp" alt="place-hero-small">
+
+            </picture>
+            <div class="data-container">
+                <h2>Data</h2>
+                <ul>
+                    <li><b>Area:</b> Approx. 5 city blocks</li>
+                    <li><b>Population:</b> ~360,000 daily visitors</li>
+                    <li><b>Capital:</b> Albany</li>
+                    <li><b>Languages:</b> English, Spanish, Chinese, Russian</li>
+                    <li><b>Currency:</b> USD ($)</li>
+                    <li><b>Time Zone:</b> UTC-5 (EST), UTC-4 (EDT)</li>
+                    <li><b>Businesses:</b> Approx. 1,500 in thes district
+                    </li>
+                    <li><b>Active Screens</b> Apx 110-130</li>
+                </ul>
+            </div>
+
+            <div class="weather-container">
+                <div>
+                    <h2>Weather <span><img src="images/weather.svg" alt="weather icon"></span></h2>
+
+                </div>
+                <ul>
+                    <li><b>Temperature:</b> 75 °F</li>
+                    <li><b>Conditions:</b> Partly Cloudy</li>
+                    <li><b>Wind:</b> 4 mph</li>
+                    <li><b>Rain:</b> Little to None</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&#169; <span id="year"></span> 🦩Van Taylor🦩 Montrose Colorado United States of America</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+:root {
+
+    /* Colors */
+    --primary: #1e3a5e;
+    --secondary: #cf4154;
+    --tertiary: #dfd5da;
+
+    /* Font & weight variations */
+    --primaryFont: "Montserrat", sans-serif;
+    --thinFontWeight: 300;
+    --normalFontWeight: 500;
+    --boldFontWeight: 700;
+}
+
+/* ======== GENERAL STRUCTURE ======== */
+
+body {
+    margin: 0;
+    background-color: var(--tertiary);
+    font-family: var(--primaryFont);
+}
+
+
+h1 {
+    font-size: 30px;
+    color: var(--tertiary);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== HEADER STYLES ======= */
+
+header {
+    text-align: center;
+    background-color: var(--secondary);
+    border-bottom: 25px solid var(--primary);
+}
+
+header h1 {
+    margin: 0;
+    padding: 1rem;
+}
+
+
+/* ======== HERO SECTION =========== */
+
+@media (min-width: 715px) {
+
+
+
+    .hero {
+        position: relative;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .data-container,
+    .weather-container {
+        position: absolute;
+        background-color: var(--tertiary);
+        text-align: center;
+    }
+
+    .weather-container {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .data-container {
+        top: 20px;
+        left: 20px;
+    }
+
+    .data-container h2,
+    .weather-container h2 {
+        background-color: var(--secondary);
+        color: var(--tertiary);
+        text-align: left;
+        padding: 1rem;
+        margin-top: 10px;
+        position: relative;
+        left: -10px;
+    }
+
+
+    .weather-container img {
+        display: none;
+    }
+
+
+    .weather-container h2::after {
+        content: " 🌤️";
+    }
+
+}
+
+ul {
+    list-style-type: none;
+    align-items: center;
+    padding: 1rem;
+    padding-top: 0;
+
+}
+
+
+
+
+
+
+li {
+    padding: 0.3rem;
+}
+
+footer {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 0.1rem;
+    color: var(--tertiary);
+}

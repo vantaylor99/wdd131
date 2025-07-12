@@ -1,15 +1,16 @@
 :root {
-    /* Montserrat Font Variations */
-    --primaryFont: "Montserrat", sans-serif;
-    --thinFontWeight: 300;
-    --normalFontWeight: 500;
-    --boldFontWeight: 700;
 
-    /* Color Scheme */
+    /* Colors */
     --primaryColor: burlywood;
     --secondaryColor: #98bd97;
     --tertiary: wheat;
     --textColor: black;
+
+    /* Font & weight variations */
+    --primaryFont: "Montserrat", sans-serif;
+    --thinFontWeight: 300;
+    --normalFontWeight: 500;
+    --boldFontWeight: 700;
 }
 
 /* ========== GENERAL STRUCTURE ========== */
@@ -22,7 +23,7 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 30px;
 }
 
 main {

@@ -1,0 +1,40 @@
+@media (max-width: 714px) {
+
+    .hero {
+        position: relative;
+        width: 100%;
+    }
+
+    .hero img {
+        width: 100%;
+        height: auto;
+    }
+
+    .data-container,
+    .weather-container {
+        position: static;
+    }
+
+    ul {
+        text-align: center;
+    }
+
+    .data-container {
+        border-bottom: solid 1px var(--secondary);
+    }
+
+
+    .weather-container img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .weather-container img {
+        width: 100px;
+        height: auto;
+    }
+}
