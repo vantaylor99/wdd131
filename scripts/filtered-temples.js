@@ -112,7 +112,7 @@ const temples = [
 function filterOld() {
     let oldTemples = temples.filter(temple => {
         let year = parseInt(temple.dedicated.split(",")[0]);
-        return year < 2000;
+        return year < 1900;
 
     });
 
