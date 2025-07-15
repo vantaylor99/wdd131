@@ -1,0 +1,182 @@
+:root {
+    /* ========== FONT VARIATIONS ========== */
+    --primaryFont: "Montserrat", sans-serif;
+    --thinFontWeight: 300;
+    --normalFontWeight: 500;
+    --boldFontWeight: 700;
+
+    /* ========== COLOR SCHEME ========== */
+    --primaryColor: burlywood;
+    --secondaryColor: #98bd97;
+    --tertiary: wheat;
+    --textColor: black;
+    --border: solid 3px var(--primaryColor);
+}
+
+/* ========== GENERAL STRUCTURE ========== */
+
+body {
+    margin: 0;
+    background-color: var(--secondaryColor);
+    font-family: var(--primaryFont);
+}
+
+
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--secondaryColor);
+}
+
+.home {
+    padding: 1rem;
+    background-color: var(--tertiary);
+    width: fit-content;
+    border: var(--border);
+    border-radius: 1rem;
+}
+
+
+
+/* ========== TEMPLE CONTAINER GRID ========== */
+
+.temple-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    /* padding: 1rem; */
+    text-align: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.temple-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.card.show {
+    border: solid 3px var(--primaryColor);
+    background-color: var(--tertiary);
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    display: none;
+}
+
+.card h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.card img {
+    box-shadow: 0 0 15px black;
+    border: var(--border)
+}
+
+.card p {
+    margin: 0px;
+    font-size: 0.9rem;
+}
+
+.card p:first-of-type {
+    margin-top: 1rem;
+}
+
+.card p:last-of-type {
+    margin-bottom: 1rem;
+}
+
+/* ========== HEADER STYLES ========== */
+
+header {
+    display: grid;
+    grid-gap: 1rem;
+    padding: 20px;
+    box-shadow: 0 0 10px black;
+    background-color: var(--primaryColor);
+}
+
+
+/* ========== NAVIGATION ========== */
+
+nav {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+nav a {
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    color: black;
+}
+
+nav a:hover {
+    background-color: var(--tertiary);
+    color: black;
+    transition: ease-in-out 0.3s;
+    border: 1px solid black;
+}
+
+.active {
+    text-decoration: underline solid black 3px;
+}
+
+
+/* ========== HAMBURGER MENU ========== */
+
+#menu {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--primaryColor);
+    color: black;
+}
+
+#menu::before {
+    content: "≡";
+}
+
+#menu.show::before {
+    content: "X";
+}
+
+/* ========== NAVIGATION TOGGLE DISPLAY ========== */
+
+.navigation {
+    display: none;
+}
+
+.navigation.show {
+    display: flex;
+}
+
+/* ========== FOOTER ========== */
+
+footer {
+    text-align: center;
+    background-color: var(--primaryColor);
+    box-shadow: 0 -1px 5px black;
+}
+
+figcaption {
+    text-align: center;
+}

@@ -1,0 +1,37 @@
+/* ========== RESPONSIVE MEDIA QUERIES ========== */
+
+@media (min-width: 740px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav a {
+        flex: 1 1 100%;
+    }
+
+    #menu::before,
+    #menu::after {
+        display: none;
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .temple-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 1050px;
+        gap: 1rem;
+        margin: 0 auto;
+    }
+
+}

@@ -1,0 +1,12 @@
+img {
+    display: block;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img[loading="lazy"]:not([src=""]) {
+    opacity: 1;
+}

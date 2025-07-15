@@ -1,0 +1,43 @@
+tbody tr:nth-child(even) {
+    background-color: azure;
+}
+
+thead tr:first-child th {
+    background-color: black;
+    border-bottom: none;
+}
+
+thead tr:nth-child(2) th:first-child {
+    background-color: black;
+    border-top: none;
+
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    margin: 10px auto;
+    border: solid 1px grey;
+    box-shadow: 0 0 10px black;
+    border-collapse: collapse;
+}
+
+caption {
+    padding: 10px;
+    caption-side: bottom;
+    font-size: .75rem;
+}
+
+th,
+td {
+    padding: 7px 15px;
+    border: 1px solid hsla(0, 0%, 33%, .3);
+    text-align: center;
+}
+
+th {
+    background-color: darkslategrey;
+    color: white;
+}
