@@ -1,0 +1,43 @@
+:root {
+
+    /* Colors */
+    --backgroundColor: burlywood;
+    --primaryColor: #98bd97;
+    --secondaryColor: wheat;
+    --textColor: black;
+
+    /* Font & weight variations */
+    --primaryFont: "Montserrat", sans-serif;
+    --thinFontWeight: 300;
+    --normalFontWeight: 500;
+    --boldFontWeight: 700;
+}
+
+
+
+
+body {
+    font-family: var(--primaryFont);
+    background-color: var(--backgroundColor);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.colors {
+    background-color: lightgoldenrodyellow;
+    padding: 1rem;
+    border: 5px solid var(--primaryColor);
+    border-radius: 1rem;
+}
+
+.colors li {
+    padding: .5rem;
+}
+
+.styled-container {
+    background-color: var(--secondaryColor);
+    border-radius: 1rem;
+    border: 5px solid var(--primaryColor);
+    padding: 1rem;
+}
