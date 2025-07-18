@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Form</title>
+    <meta name="author" content="Van Taylor">
+    <meta name="description" content="A website to help me practice creating and styling a form.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font API -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="styles/form.css">
+    <script src="scripts/form.js"></script>
+</head>
+
+
+
+<body>
+    <main>
+        <form action="review.html" method="get" class="wf1">
+            <fieldset>
+                <legend>Product Name</legend>
+                <select name="product" id="product" required>
+                    <option value="" disabled selected id="default">Choose a Product...</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Overall Rating</legend>
+                <label><input type="radio" name="Rating" id="1star" required>&star;</label>
+                <label><input type="radio" name="Rating" id="2star" required>&star;&star;</label>
+                <label><input type="radio" name="Rating" id="3star" required>&star;&star;&star;</label>
+                <label><input type="radio" name="Rating" id="4star" required>&star;&star;&star;&star;</label>
+                <label><input type="radio" name="Rating" id="5star" required>&star;&star;&star;&star;&star;</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Date of Installation</legend>
+                <input type="date" id="date" name="installation">
+            </fieldset>
+
+            <fieldset>
+                <legend>Useful Features</legend>
+                <label><input type="checkbox" name="features" id="checkbox1" required>Durability</label>
+                <label><input type="checkbox" name="features" id="checkbox2" required>Ease of Use</label>
+                <label><input type="checkbox" name="features" id="checkbox3" required>Performance</label>
+                <label><input type="checkbox" name="features" id="checkbox4" required>Design</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Written Review <span style="color: rgb(0, 0, 167);">(optional)</span></legend>
+                <textarea name="review" id="textarea" placeholder="Write review here..."></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Your Name <span style="color: rgb(0, 0, 167);">(optional)</span></legend>
+                <input type="text" name="name" id="username" placeholder="Ex: Van Taylor">
+            </fieldset>
+
+            <fieldset>
+                <input type="submit" id="submit" name="submit">
+            </fieldset>
+
+        </form>
+    </main>
+
+
+    <footer>
+        <p>&#169; <span id="year"></span> 🦩Van Taylor🦩 Montrose Colorado United States of America</p>
+        <p id="lastModified"></p>
+        <p id="pageVisits"></p>
+    </footer>
+    <script src="scripts/getdates.js"></script>
+
+
+</body>
+
+
+
+</html>
