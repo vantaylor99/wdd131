@@ -19,7 +19,9 @@
 
 
     <link rel="stylesheet" href="styles/form.css">
-    <script src="scripts/form.js"></script>
+    <script src="scripts/form.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+
 </head>
 
 
@@ -60,12 +62,12 @@
             </fieldset>
 
             <fieldset>
-                <legend>Written Review <span style="color: rgb(0, 0, 167);">(optional)</span></legend>
+                <legend>Written Review <span class="optional">(optional)</span></legend>
                 <textarea name="review" id="textarea" placeholder="Write review here..."></textarea>
             </fieldset>
 
             <fieldset>
-                <legend>Your Name <span style="color: rgb(0, 0, 167);">(optional)</span></legend>
+                <legend>Your Name <span class="optional">(optional)</span></legend>
                 <input type="text" name="name" id="username" placeholder="Ex: Van Taylor">
             </fieldset>
 
@@ -82,7 +84,6 @@
         <p id="lastModified"></p>
         <p id="pageVisits"></p>
     </footer>
-    <script src="scripts/getdates.js"></script>
 
 
 </body>

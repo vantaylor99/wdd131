@@ -75,6 +75,11 @@ h1 {
     padding-bottom: 1rem;
 }
 
+.optional {
+    color: rgb(0, 0, 167);
+    font-size: 0.8rem;
+}
+
 
 #date {
     font-family: var(--primaryFont);
