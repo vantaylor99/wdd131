@@ -71,6 +71,10 @@ textarea {
     border: 0;
 }
 
+h1 {
+    padding-bottom: 1rem;
+}
+
 
 #date {
     font-family: var(--primaryFont);
