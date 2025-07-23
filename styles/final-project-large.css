@@ -1,0 +1,28 @@
+@media screen and (min-width: 850px) {
+
+
+    .introduction {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        gap: 2rem;
+        padding: 3rem;
+    }
+
+    .my-method-text-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        align-items: center;
+        gap: 2rem;
+        padding: 3rem;
+    }
+
+    .right-side {
+        order: 2;
+    }
+
+    .left-side {
+        order: 1;
+    }
+}

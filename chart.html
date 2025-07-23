@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Management Calculator</title>
+
+    <meta name="author" content="Van Taylor">
+    <meta name="description"
+        content="This is a page to help track / calculate how much time you should have for each category of responsibilities.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font API -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/final-project.css">
+    <link rel="stylesheet" href="styles/final-project-large.css">
+
+    <script src="scripts/final-project.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo-title">
+            <img src="images/wssm-logo.png" alt="WSSM Logo" loading="lazy">
+            <h1>W<span class="small-title-text">
+                    <p class="w-title">ork</p>
+                </span>S<span class="small-title-text">
+                    <p>chool</p>
+                </span>S<span class="small-title-text">
+                    <p>pirit</p>
+                </span>M<span class="small-title-text">
+                    <p>inecraft</p>
+                </span></h1>
+        </div>
+        <nav>
+            <a href="final-project.html">Home</a>
+            <a href="chart.html">Time Calculator Tool</a>
+            <a href="spirit.html">Spirit</a>
+        </nav>
+    </header>
+    <main>
+        <form method="get" action="chart.html" class="wf1">
+            <h1>Time is Money and Money is Minecraft</h1>
+            <fieldset>
+                <legend>🏫School</legend>
+                <div>
+                    <label for="classCount">How many classes are you taking?</label>
+                    <input type="number" id="classCount" name="classCount" min="0" max="10" step="1" value="0"
+                        class="user-input">
+                </div>
+                <div>
+                    <label for="classTimeCount">On average how much time do you need <b>per class
+                            per
+                            day?</b></label>
+                    <input type="number" id="classTimeCount" name="classTimeCount" min="0" max="12" step="0.5" value="0"
+                        class="user-input"><span class="unit-label">hrs.</span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>💼Work</legend>
+
+                <div>
+                    <label>Are you paid a salary or paid hourly?</label>
+                    <label><input type="radio" name="payType" id="salary" value="salary">Salary</label>
+                    <label><input type="radio" name="payType" id="hourly" value="hourly">Hourly</label>
+                </div>
+
+                <div class="show" id="hourlyRateDiv">
+                    <label for="hourlyRate">What is your hourly rate?</label>
+                    <input type="number" id="hourlyRate" name="hourlyRate" class="user-input"><span>/ hour.</span>
+                </div>
+
+                <div class="show" id="salaryRateDiv">
+                    <label for="salaryRate">What is your Salary?</label>
+                    <input type="number" id="salaryRate" name="salaryRate" class="user-input"><span>/ year.</span>
+                </div>
+                <div>
+                    <label for="hoursWorked">How many hours a week do you work?</label>
+                    <input type="number" id="hoursWorked" name="hoursWorked" class="user-input" min="0" max="99"
+                        step="0.5"><span class="unit-label">hrs.</span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>🫂Family / Relationships</legend>
+                <div>
+                    <label for="maritalStatus">What is your marital status?</label>
+                    <select name="maritalStatus" id="maritalStatus" class="select-input">
+                        <option value="" disabled selected hidden="default">Please select</option>
+                        <option value="single">Single</option>
+                        <option value="relationship">In a relationship</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                    </select>
+                </div>
+                <div class="show">
+                    <label for="kidsYN">Do you have kids?</label>
+                    <select name="kidsYN" id="kidsYN" class="select-input">
+                        <option value="" disabled selected hidden="default">Please select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="show">
+                    <label for="kidCount">How many kids do you have?</label>
+                    <input type="number" id="kidCount" name="kidCount" min="1" max="99" step="1" class="user-input">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>⛪Calling / Church</legend>
+                <label for="churchCalling">Do you have a church calling?</label>
+                <select name="churchCalling" id="churchCalling" class="select-input">
+                    <option value="" disabled selected hidden="default">Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <div class="show">
+                    <label for="hoursForCalling">How much time do you dedicate for your calling each week?</label>
+                    <input type="number" id="callingCount" name="callingCount" min="0" max="99" step="0.5"
+                        class="user-input"><span class="unit-label">hrs.</span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>💪 Self-Care</legend>
+                <div>
+                    <label for="exerciseHours">How much time a week do you want to
+                        exercise?</label>
+                    <input type="number" id="exerciseCount" name="exerciseCount" min="0" max="99" step="0.5"
+                        class="user-input">
+                </div>
+                <div>
+                    <label for="sleepHours">How many hours of sleep do you like to get per
+                        night?</label>
+                    <input type="number" id="sleepCount" name="sleepCount" min="0" max="99" step="0.5"
+                        class="user-input"><span class="unit-label">hrs.</span>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>🥣Meals</legend>
+                <div>
+                    <label for="userCooks">Do you cook your own meals?</label>
+                    <select name="userCooks" id="userCooks" class="select-input">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="hoursCooked">If yes, how many times do you cook a week?</label>
+                    <input type="number" id="hoursCooked" name="hoursCooked" class="user-input">
+                </div>
+                <div>
+                    <label for="timeToCook">How long does it usually take you to cook a
+                        meal?</label>
+                    <input type="number" id="timeToCook" name="timeToCook" class="user-input"><span
+                        class="unit-label">hrs.</span>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>🟩 Minecraft</legend>
+                <label for="minecraftTime">How much time would you like to have to play
+                    Minecraft?</label>
+                <input type="number" id="minecraftTime" name="minecraftTime" class="user-input" min="0" max="99"
+                    step="0.5"><span class="unit-label">hrs.</span>
+            </fieldset>
+
+
+            <fieldset>
+                <input type="submit" id="calculate" name="calculate" value="Calculate!">
+            </fieldset>
+        </form>
+    </main>
+
+    <footer>
+        <p>&#169; <span id="year"></span> 🦩Van Taylor🦩 <br>Montrose Colorado United States of America</p>
+        <p id="lastModified"></p>
+    </footer>
+
+
+
+</body>
+
+</html>

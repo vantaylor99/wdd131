@@ -1,0 +1,175 @@
+:root {
+    /* Colors */
+    --primaryColor: burlywood;
+    --secondaryColor: #98bd97;
+    --tertiary: wheat;
+    --textColor: black;
+
+    /* Fonts */
+    --primaryFont: "Montserrat", sans-serif;
+    --thinFontWeight: 300;
+    --normalFontWeight: 500;
+    --boldFontWeight: 700;
+
+    /* Border */
+    --border: 3px solid black;
+}
+
+/* GLOBAL STUFF */
+body {
+    margin: 0;
+    font-family: var(--primaryFont);
+    background-color: var(--secondaryColor);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+/* HEADER SECTION */
+header {
+    background-color: var(--primaryColor);
+    width: 100%;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-bottom: 5px solid black;
+    padding: 0.5rem;
+}
+
+.logo-title img {
+    width: 50px;
+    height: auto;
+}
+
+.logo-title h1 {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.small-title-text {
+    font-size: 12px;
+    margin-left: 1px;
+    margin-right: 8px;
+    padding-top: 10px;
+}
+
+/* This is such a minor detail but the "W" was just too far away from the "ork" */
+.w-title {
+    margin-left: -4px;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--secondaryColor);
+    padding: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: var(--boldFontWeight);
+    color: var(--textColor);
+}
+
+nav a:hover {
+    text-decoration: underline dashed 5px var(--primaryColor);
+}
+
+/* MAIN */
+
+.card {
+    margin: 1rem;
+    border: 3px solid black;
+    border-radius: 12px;
+    background-color: var(--tertiary);
+    position: relative;
+    padding: 1rem;
+}
+
+
+
+.introduction p {
+    grid: 1;
+}
+
+.introduction img {
+    height: auto;
+    border-radius: 2rem;
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+.my-method-text-content img {
+    width: 400px;
+    height: auto;
+}
+
+.intro {
+    grid-column: 1 / -1;
+    background-color: var(--primaryColor);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: var(--border);
+}
+
+.left-side {
+    background-color: var(--primaryColor);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: var(--border);
+}
+
+.left-side p {
+    margin-top: 0px;
+}
+
+.intro h2,
+.left-side h2 {
+    background-color: var(--secondaryColor);
+    border: var(--border);
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 0px;
+    margin-bottom: 0.8rem;
+}
+
+.right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FOOTER */
+footer {
+    padding: 1rem;
+    text-align: center;
+}
+
+
+
+.user-input {}
+
+.select-input {}
+
+
+.show {
+    display: block;
+}
