@@ -72,13 +72,13 @@
                     <label><input type="radio" name="payType" id="hourly" value="hourly">Hourly</label>
                 </div>
 
-                <div class="show" id="hourlyRateDiv">
-                    <label for="hourlyRate">What is your hourly rate?</label>
+                <div class="hidden" id="hourlyRateDiv">
+                    <label for="hourlyRate">What is your hourly rate? $</label>
                     <input type="number" id="hourlyRate" name="hourlyRate" class="user-input"><span>/ hour.</span>
                 </div>
 
-                <div class="show" id="salaryRateDiv">
-                    <label for="salaryRate">What is your Salary?</label>
+                <div class="hidden" id="salaryRateDiv">
+                    <label for="salaryRate">What is your Salary? $</label>
                     <input type="number" id="salaryRate" name="salaryRate" class="user-input"><span>/ year.</span>
                 </div>
                 <div>
@@ -99,7 +99,18 @@
                         <option value="divorced">Divorced</option>
                     </select>
                 </div>
-                <div class="show">
+                <div class="hidden" id="datingCountDiv">
+                    <label for="datingCount">How much time do you want to spend dating a week?</label>
+                    <input type="number" id="datingCount" name="datingCount" min="0.0" max="99" step="0.5"
+                        class="user-input"><span class="unit-label">hrs.</span>
+                </div>
+                <div class="hidden" id="relationshipCountDiv">
+                    <label for="relationshipCount">How much time do you want to set aside for your relationship a
+                        day?</label>
+                    <input type="number" id="relationshipCount" name="relationshipCount" min="0.5" max="99" step="0.5"
+                        class="user-input"><span class="unit-label">hrs.</span>
+                </div>
+                <div class="hidden" id="kidsYNDiv">
                     <label for="kidsYN">Do you have kids?</label>
                     <select name="kidsYN" id="kidsYN" class="select-input">
                         <option value="" disabled selected hidden="default">Please select</option>
@@ -107,9 +118,14 @@
                         <option value="no">No</option>
                     </select>
                 </div>
-                <div class="show">
+                <div class="hidden" id="kidCountDiv">
                     <label for="kidCount">How many kids do you have?</label>
                     <input type="number" id="kidCount" name="kidCount" min="1" max="99" step="1" class="user-input">
+                </div>
+                <div class="hidden" id="kidTimeCountDiv">
+                    <label for="kidtimeCount">How much time do you want to spend with your kids a week?</label>
+                    <input type="number" id="kidTimeCount" name="kidTimeCount" min="0" max="99" step="0.5"
+                        class="user-input"><span class="unit-label">hrs.</span>
                 </div>
             </fieldset>
             <fieldset>
@@ -120,7 +136,7 @@
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
-                <div class="show">
+                <div class="hidden">
                     <label for="hoursForCalling">How much time do you dedicate for your calling each week?</label>
                     <input type="number" id="callingCount" name="callingCount" min="0" max="99" step="0.5"
                         class="user-input"><span class="unit-label">hrs.</span>

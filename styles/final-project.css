@@ -170,6 +170,8 @@ footer {
 .select-input {}
 
 
-.show {
-    display: block;
+
+
+.hidden {
+    display: none;
 }
