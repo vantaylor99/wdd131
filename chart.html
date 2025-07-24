@@ -56,10 +56,10 @@
                         class="user-input">
                 </div>
                 <div>
-                    <label for="classTimeCount">On average how much time do you need <b>per class
+                    <label for="classTime">On average how much time do you need <b>per class
                             per
                             day?</b></label>
-                    <input type="number" id="classTimeCount" name="classTimeCount" min="0" max="12" step="0.5" value="0"
+                    <input type="number" id="classTime" name="classTime" min="0" max="12" step="0.5" value="0"
                         class="user-input"><span class="unit-label">hrs.</span>
                 </div>
             </fieldset>
@@ -99,20 +99,20 @@
                         <option value="divorced">Divorced</option>
                     </select>
                 </div>
-                <div class="hidden" id="datingCountDiv">
-                    <label for="datingCount">How much time do you want to spend dating a week?</label>
-                    <input type="number" id="datingCount" name="datingCount" min="0.0" max="99" step="0.5"
+                <div class="hidden" id="datingTimeDiv">
+                    <label for="datingTime">How much time do you want to spend dating a week?</label>
+                    <input type="number" id="datingTime" name="datingTime" min="0.0" max="99" step="0.5"
                         class="user-input"><span class="unit-label">hrs.</span>
                 </div>
-                <div class="hidden" id="relationshipCountDiv">
-                    <label for="relationshipCount">How much time do you want to set aside for your relationship a
+                <div class="hidden" id="relationshipTimeDiv">
+                    <label for="relationshipTime">How much time do you want to set aside for your relationship a
                         day?</label>
-                    <input type="number" id="relationshipCount" name="relationshipCount" min="0.5" max="99" step="0.5"
+                    <input type="number" id="relationshipTime" name="relationshipTime" min="0.5" max="99" step="0.5"
                         class="user-input"><span class="unit-label">hrs.</span>
                 </div>
-                <div class="hidden" id="kidsYNDiv">
-                    <label for="kidsYN">Do you have kids?</label>
-                    <select name="kidsYN" id="kidsYN" class="select-input">
+                <div class="hidden" id="hasKidsDiv">
+                    <label for="hasKids">Do you have kids?</label>
+                    <select name="hasKids" id="hasKids" class="select-input">
                         <option value="" disabled selected hidden="default">Please select</option>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
@@ -122,9 +122,9 @@
                     <label for="kidCount">How many kids do you have?</label>
                     <input type="number" id="kidCount" name="kidCount" min="1" max="99" step="1" class="user-input">
                 </div>
-                <div class="hidden" id="kidTimeCountDiv">
-                    <label for="kidtimeCount">How much time do you want to spend with your kids a week?</label>
-                    <input type="number" id="kidTimeCount" name="kidTimeCount" min="0" max="99" step="0.5"
+                <div class="hidden" id="kidTimeDiv">
+                    <label for="kidTime">How much time do you want to spend with each individual kid a week?</label>
+                    <input type="number" id="kidTime" name="kidTime" min="0" max="99" step="0.5"
                         class="user-input"><span class="unit-label">hrs.</span>
                 </div>
             </fieldset>
@@ -136,24 +136,30 @@
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
-                <div class="hidden">
-                    <label for="hoursForCalling">How much time do you dedicate for your calling each week?</label>
-                    <input type="number" id="callingCount" name="callingCount" min="0" max="99" step="0.5"
+                <div class="hidden" id="callingTimeDiv">
+                    <label for="callingTime">How much time do you dedicate for your calling each week?</label>
+                    <input type="number" id="callingTime" name="callingTime" min="0" max="99" step="0.5"
                         class="user-input"><span class="unit-label">hrs.</span>
+                </div>
+                <div>
+                    <label for="spiritualTime">How much time a day can you spend doing something spiritually
+                        uplifting?</label>
+                    <input type="number" id="spiritualTime" name="spiritualTime" min="0" max="999" step="15"
+                        class="user-input"><span class="unit-label">minutes.</span>
                 </div>
             </fieldset>
             <fieldset>
                 <legend>💪 Self-Care</legend>
                 <div>
-                    <label for="exerciseHours">How much time a week do you want to
+                    <label for="exerciseTime">How much time a week do you want to
                         exercise?</label>
-                    <input type="number" id="exerciseCount" name="exerciseCount" min="0" max="99" step="0.5"
-                        class="user-input">
+                    <input type="number" id="exerciseTime" name="exerciseTime" min="0" max="99" step="0.5"
+                        class="user-input"><span class="unit-label">hrs.</span>
                 </div>
                 <div>
-                    <label for="sleepHours">How many hours of sleep do you like to get per
+                    <label for="sleepTime">How many hours of sleep do you like to get per
                         night?</label>
-                    <input type="number" id="sleepCount" name="sleepCount" min="0" max="99" step="0.5"
+                    <input type="number" id="sleepTime" name="sleepTime" min="0" max="99" step="0.5"
                         class="user-input"><span class="unit-label">hrs.</span>
                 </div>
             </fieldset>
@@ -162,34 +168,42 @@
                 <div>
                     <label for="userCooks">Do you cook your own meals?</label>
                     <select name="userCooks" id="userCooks" class="select-input">
+                        <option value="" disabled selected hidden="default">Please select</option>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                     </select>
                 </div>
-                <div>
-                    <label for="hoursCooked">If yes, how many times do you cook a week?</label>
-                    <input type="number" id="hoursCooked" name="hoursCooked" class="user-input">
+                <div class="hidden" id="mealsCookedDiv">
+                    <label for="mealsCooked">How many times do you cook a week?</label>
+                    <input type="number" id="mealsCooked" name="mealsCooked" class="user-input">
                 </div>
-                <div>
-                    <label for="timeToCook">How long does it usually take you to cook a
+                <div class="hidden" id="cookingTimeDiv">
+                    <label for="cookingTime">How long does it usually take you to cook a
                         meal?</label>
-                    <input type="number" id="timeToCook" name="timeToCook" class="user-input"><span
-                        class="unit-label">hrs.</span>
+                    <input type="number" id="cookingTime" name="cookingTime" min="0" max="99" step="0.5"
+                        class="user-input"><span class="unit-label">hrs.</span>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>🟩 Minecraft</legend>
-                <label for="minecraftTime">How much time would you like to have to play
-                    Minecraft?</label>
-                <input type="number" id="minecraftTime" name="minecraftTime" class="user-input" min="0" max="99"
-                    step="0.5"><span class="unit-label">hrs.</span>
+                <legend>📱Media</legend>
+                <div>
+                    <label for="minecraftTime">How much time a week would you like to have to play
+                        Minecraft?</label>
+                    <input type="number" id="minecraftTime" name="minecraftTime" class="user-input" min="0" max="99"
+                        step="0.5"><span class="unit-label">hrs.</span>
+                </div>
+                <div>
+                    <label for="scrollingTime">On average, how much time do you spend scrolling a day?</label>
+                    <input type="number" id="scrollingTime" name="scrollingTime" min="0" max="99" step="0.5"
+                        class="user-input"><span class="unit-label">hrs.</span>
+                </div>
             </fieldset>
 
+            <div>
+                <input type="button" id="calculate" name="calculate" value="Calculate!">
+            </div>
 
-            <fieldset>
-                <input type="submit" id="calculate" name="calculate" value="Calculate!">
-            </fieldset>
         </form>
     </main>
 
