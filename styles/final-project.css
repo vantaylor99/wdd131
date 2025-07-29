@@ -33,7 +33,6 @@ p {
 
 /* HEADER SECTION */
 header {
-    background-color: var(--primaryColor);
     width: 100%;
 }
 
@@ -44,6 +43,7 @@ header {
     gap: 0.5rem;
     border-bottom: 5px solid black;
     padding: 0.5rem;
+    background-color: var(--primaryColor);
 }
 
 .logo-title img {
@@ -76,17 +76,27 @@ nav {
     justify-content: space-evenly;
     background-color: var(--secondaryColor);
     padding: 1rem;
+    background-color: var(--secondaryColor);
+    max-width: 1700px;
+    margin: 0 auto;
+
 }
+
 
 nav a {
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.3rem;
     font-weight: var(--boldFontWeight);
     color: var(--textColor);
+    padding: 1rem;
+    border: solid 1px black;
+    border-radius: 1rem;
+    background-color: var(--primaryColor);
 }
 
 nav a:hover {
-    text-decoration: underline dashed 5px var(--primaryColor);
+    background-color: var(--tertiary);
+    transition: background-color 0.20s ease-in-out 0.15s;
 }
 
 /* MAIN */
@@ -165,13 +175,114 @@ footer {
 
 
 
-.user-input {}
-
-.select-input {}
-
-
-
-
+/* Form CSS */
 .hidden {
     display: none;
+}
+
+
+.wf1 {
+    padding: 1rem;
+    background-color: var(--primaryColor);
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+    font-size: 24px;
+}
+
+.wf1 h1 {
+    text-align: center;
+    background-color: var(--tertiary);
+    border: 3px dashed black;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.wf1 fieldset {
+    margin: 1.5rem 0;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: .5rem 2%;
+    background-color: var(--tertiary);
+}
+
+legend {
+    font-weight: var(--boldFontWeight);
+    font-size: 1.5rem;
+}
+
+.calculateButton {
+    display: block;
+    margin: 1px auto;
+    text-align: center;
+    font: var(--primaryFont);
+    font-size: 2rem;
+    background-color: var(--secondaryColor);
+    padding: 8px;
+    border-radius: 1rem;
+}
+
+
+/* Table CSS */
+
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+    height: auto;
+}
+
+.resultsTable {
+    padding: 1rem;
+    background-color: var(--tertiary);
+    border-radius: 1rem;
+    border: 1px solid black;
+    width: 100%;
+    max-width: 100%;
+    font-size: 1rem;
+}
+
+table {
+    margin: 10px auto;
+    box-shadow: 0 0 10px hsl(0, 0%, 1%);
+    border-collapse: separate;
+}
+
+th,
+td {
+    padding: 5px;
+    border: 1px solid grey;
+    white-space: nowrap;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: antiquewhite;
+}
+
+thead tr {
+    background-color: var(--primaryColor);
+}
+
+
+.summary-row {
+    font-weight: var(--boldFontWeight);
+}
+
+.total-available {
+    background-color: lightgreen;
+}
+
+.total-spent {
+    background-color: lightcoral;
+}
+
+.total-remaining {
+    background-color: lightblue;
+}
+
+
+/* Spirit Page */
+
+.hero-container {
+    width: 100vw;
+    height: auto;
 }

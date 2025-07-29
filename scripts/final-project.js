@@ -29,8 +29,6 @@ payTypeRadios.forEach(radioButton => {
 });
 
 
-
-
 // Relationship Section
 const maritalStatusSelect = document.querySelectorAll('select[name=maritalStatus]');
 const hasKidsSelect = document.querySelectorAll('select[name=hasKids]');
@@ -90,17 +88,6 @@ hasKidsSelect.forEach(option => {
 })
 
 
-
-// const maritalStatusSelect = document.querySelectorAll('select[name=maritalStatus]');
-// const hasKidsSelect = document.querySelectorAll('select[name=hasKids]');
-
-// const datingCountDiv = document.getElementById('datingCountDiv');
-// const relationshipCountDiv = document.getElementById('relationshipCountDiv');
-// const hasKidsDiv = document.getElementById('hasKidsDiv');
-// const kidCountDiv = document.getElementById('kidCountDiv');
-// const kidTimeDiv = document.getElementById('kidTimeDiv');
-
-
 // Calling / Church Section
 const churchCallingSelect = document.querySelectorAll('select[name=churchCalling]');
 const callingTimeDiv = document.getElementById('callingTimeDiv');
@@ -138,7 +125,7 @@ userCooksSelect.forEach(option => {
 })
 
 
-// Function to toggle visibility 
+// Functions to toggle visibility 
 function toggleVisibilityOn(element) {
     element.classList.remove("hidden");
 }
@@ -148,6 +135,7 @@ function toggleVisibilityOff(element) {
 }
 
 
+// Functions to reset select and number inputs
 function resetSelectById(id) {
     const select = document.getElementById(id)
     if (select) {
@@ -162,6 +150,8 @@ function resetInputById(id) {
     }
 }
 
+// Allow some inputs to be saved in case a user misclicks, 
+// but then before running calculations remove any hidden input text
 function clearHiddenInputs() {
     const hiddenElements = document.querySelectorAll('.hidden');
 
@@ -173,11 +163,55 @@ function clearHiddenInputs() {
     })
 }
 
+function clearTables() {
+    document.getElementById('resultsBody').innerHTML = '';
+    document.getElementById('summaryRows').innerHTML = '';
+}
+
+
+// Grab inputs
 function getElementValue(id) {
     return Number(document.getElementById(id).value) || 0;
 }
 
+// Save & Load inputs to Local storage
+function saveInputToLocalStorage(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        localStorage.setItem(id, element.value)
+    }
+}
 
+
+
+function loadInputFromLocalStorage(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        const savedValue = localStorage.getItem(id);
+        if (savedValue !== null) {
+            element.value = savedValue;
+        }
+
+    }
+}
+
+
+
+const idsToLoad = [
+    "classCount", "classTime", "salary", "hourly", "hourlyRate",
+    "salaryRate", "hoursWorked", "maritalStatus", "datingTime",
+    "relationshipTime", "hasKids", "kidCount", "kidTime", "churchCalling",
+    "callingTime", "spiritualTime", "exerciseTime", "sleepTime", "userCooks",
+    "cookingTime", "minecraftTime", "scrollingTime"];
+
+
+function loadAllInputs() {
+    idsToLoad.forEach(id => {
+        loadInputFromLocalStorage(id)
+    });
+}
+
+// Self explanitory funcitons
 function multiplyCountByTime(count, time) {
     return count * time;
 }
@@ -195,10 +229,116 @@ function calculateCostOfActivity(lengthOfActivity) {
     return lengthOfActivity * hourlyRateOfUserTime;
 }
 
+
 // Global Variables
 const hoursInWeek = 7 * 24;
 let totalTimeBalanceUSD = 0;
 let hourlyRateOfUserTime = 0;
+let totalTime = 0;
+let totalCost = 0;
+
+
+
+
+// Display Tables
+function displayTables(activities, totalTime, totalCost) {
+    const resultsBody = document.getElementById('resultsBody')
+    const summaryRows = document.getElementById('summaryRows')
+
+    activities.forEach(activity => {
+
+
+        const row = document.createElement('tr');
+        const nameDataContainer = document.createElement('td')
+        const timeDataContainer = document.createElement('td')
+        const costDataContainer = document.createElement('td')
+
+        nameDataContainer.textContent = activity.name;
+        timeDataContainer.textContent = `${activity.time.toFixed(1)} hrs.`;
+        costDataContainer.textContent = `$${activity.cost.toFixed(2)}`;
+        row.append(nameDataContainer);
+        row.append(timeDataContainer);
+        row.append(costDataContainer);
+
+        if (activity.time > 0) {
+            resultsBody.append(row)
+        }
+
+    });
+
+    const availableRow = document.createElement('tr');
+    availableRow.classList.add('summary-row', 'total-available');
+
+    const availableTotalContainer = document.createElement('td');
+    const availableTimeContainer = document.createElement('td');
+    const availableCostContainer = document.createElement('td');
+
+    availableTotalContainer.textContent = "Available: "
+    availableTimeContainer.textContent = `${hoursInWeek.toFixed(1)} hrs.`
+    availableCostContainer.textContent = `$${totalTimeBalanceUSD.toFixed(2)}`;
+
+    availableRow.append(availableTotalContainer);
+    availableRow.append(availableTimeContainer);
+    availableRow.append(availableCostContainer);
+    summaryRows.append(availableRow);
+
+
+
+    const spentRow = document.createElement('tr');
+    spentRow.classList.add('summary-row', 'total-spent');
+
+    const spentContainer = document.createElement('td');
+    const spentTimeContainer = document.createElement('td');
+    const spentCostContainer = document.createElement('td');
+
+    spentContainer.textContent = "Total Spent:";
+    spentTimeContainer.textContent = `${totalTime.toFixed(1)} hrs.`
+    spentCostContainer.textContent = `$${totalCost.toFixed(2)}`;
+
+    spentRow.append(spentContainer);
+    spentRow.append(spentTimeContainer);
+    spentRow.append(spentCostContainer);
+    summaryRows.append(spentRow);
+
+    const remainingRow = document.createElement('tr');
+    remainingRow.classList.add('summary-row', 'total-remaining');
+
+    const remainingTotalContainer = document.createElement('td');
+    const remainingTimeContainer = document.createElement('td');
+    const remainingCostContainer = document.createElement('td');
+
+    remainingTotalContainer.textContent = "Remaining: "
+    remainingTimeContainer.textContent = `${(hoursInWeek - totalTime).toFixed(1)} hrs.`
+    remainingCostContainer.textContent = `$${(totalTimeBalanceUSD - totalCost).toFixed(2)}`;
+
+    remainingRow.append(remainingTotalContainer);
+    remainingRow.append(remainingTimeContainer);
+    remainingRow.append(remainingCostContainer);
+    summaryRows.append(remainingRow);
+}
+
+
+const resultsTable = document.getElementById('resultsTable');
+
+document.addEventListener("DOMContentLoaded", () => {
+    const savedRadioValue = localStorage.getItem("payType");
+    if (savedRadioValue) {
+        const radioInput = document.querySelector(`input[name="payType"][value="${savedRadioValue}"]`);
+        if (radioInput) {
+            radioInput.checked = true;
+            if (savedRadioValue === 'salary') {
+                toggleVisibilityOn(salaryRateDiv);
+                toggleVisibilityOff(hourlyRateDiv);
+            }
+            else if (savedRadioValue === 'hourly') {
+                toggleVisibilityOn(hourlyRateDiv);
+                toggleVisibilityOff(salaryRateDiv);
+            }
+        }
+    }
+    loadAllInputs();
+
+});
 
 
 
@@ -206,66 +346,39 @@ const calculateButton = document.getElementById('calculate');
 calculateButton.addEventListener('click', () => {
     clearHiddenInputs();
 
+    idsToLoad.forEach(id => {
+        saveInputToLocalStorage(id)
+    });
 
-    // const classCount = getElementValue('classCount');
-    // const classTime = getElementValue('classTime');
-
-    // const salaryRate = getElementValue('salaryRate').toFixed(2);
-    // const hourlyRate = getElementValue('hourlyRate').toFixed(2);
-    // const hoursWorked = getElementValue('hoursWorked');
-
-    // const datingTime = getElementValue('datingTime');
-    // const relationshipTime = getElementValue('relationshipTime');
-    // const kidCount = getElementValue('kidCount');
-    // const kidTime = getElementValue('kidTime');
-
-    // const callingTime = getElementValue('callingTime');
-    // const spiritualTime = getElementValue('spiritualTime');
-
-    // const exerciseTime = getElementValue('exerciseTime');
-    // const sleepTime = getElementValue('sleepTime');
-
-    // const mealsCooked = getElementValue('mealsCooked');
-    // const cookingTime = getElementValue('cookingTime');
-
-    // const scrollingTime = getElementValue('scrollingTime');
-    // const minecraftTime = getElementValue('minecraftTime');
-
-
-    const classCount = 2;
-    const classTime = 1.5; // hours/day
-
-    // Work
-    const hoursWorked = 40;
-    const salaryRate = 52000; // annual salary
-    const hourlyRate = 25; // if you're testing hourly instead
-
-    // Relationships
-    const datingTime = 1; // hours/day
-    const relationshipTime = 1.5; // hours/day
-    const kidCount = 3;
-    const kidTime = 1; // per kid per week
-
-    // Church
-    const callingTime = 2; // hours/week
-    const spiritualTime = 30; // minutes/day
-
-    // Self-care
-    const exerciseTime = 3; // hours/week
-    const sleepTime = 7; // hours/night
-
-    // Meals
-    const mealsCooked = 4;
-    const cookingTime = 1; // hours per meal
-
-    // Media
-    const minecraftTime = 2; // hours/week
-    const scrollingTime = 0.5; // hours/day
-
-
-
-
+    toggleVisibilityOn(resultsTable);
     let totalTime = 0;
+    let totalCost = 0;
+
+
+    const classCount = getElementValue('classCount');
+    const classTime = getElementValue('classTime');
+    const hoursWorked = getElementValue('hoursWorked');
+
+    const datingTime = getElementValue('datingTime');
+    const relationshipTime = getElementValue('relationshipTime');
+    const kidCount = getElementValue('kidCount');
+    const kidTime = getElementValue('kidTime');
+
+    const callingTime = getElementValue('callingTime');
+    const spiritualTime = getElementValue('spiritualTime');
+
+    const exerciseTime = getElementValue('exerciseTime');
+    const sleepTime = getElementValue('sleepTime');
+
+    const mealsCooked = getElementValue('mealsCooked');
+    const cookingTime = getElementValue('cookingTime');
+
+    const scrollingTime = getElementValue('scrollingTime');
+    const minecraftTime = getElementValue('minecraftTime');
+
+
+
+    // Some 
     const totalClassTime = multiplyCountByTime(classCount, convertToWeeklyTime(classTime))
     totalTime = addTimeToTotal(totalTime, totalClassTime);
 
@@ -279,7 +392,8 @@ calculateButton.addEventListener('click', () => {
 
 
     totalTime = addTimeToTotal(totalTime, callingTime);
-    // spiritual time is in minutes and it's not worth creating a minutes to hours calculator. 
+    // spiritual time is the only one in minutes and 
+    // it's not worth creating a minutes to hours calculator. 
     const totalSpiritualTime = convertToWeeklyTime((spiritualTime / 60))
     totalTime = addTimeToTotal(totalTime, totalSpiritualTime);
 
@@ -296,12 +410,16 @@ calculateButton.addEventListener('click', () => {
 
     // Code to calcualte how much the users time is worth a week
     const selectedRadio = document.querySelector('input[name=payType]:checked');
+
     if (selectedRadio) {
+        localStorage.setItem("payType", selectedRadio.value);
         if (selectedRadio.value === 'salary') {
+            const salaryRate = getElementValue('salaryRate');
             hourlyRateOfUserTime = ((salaryRate / 52) / hoursWorked);
             totalTimeBalanceUSD = (((salaryRate / 52) / hoursWorked) * hoursInWeek);
         }
         else if (selectedRadio.value === 'hourly') {
+            const hourlyRate = getElementValue('hourlyRate');
             hourlyRateOfUserTime = hourlyRate;
             totalTimeBalanceUSD = (hourlyRate * hoursInWeek);
         }
@@ -310,31 +428,34 @@ calculateButton.addEventListener('click', () => {
 
 
 
-
+    // Activities array 
     const activities = [
-        { name: "Class", time: totalClassTime },
-        { name: "Dating", time: datingTime },
-        { name: "Relationship", time: totalRelationshipTime },
-        { name: "Kids", time: totalKidTime },
-        { name: "Calling", time: callingTime },
-        { name: "Spiritual", time: totalSpiritualTime },
-        { name: "Exercise", time: exerciseTime },
-        { name: "Sleep", time: totalSleepTime },
-        { name: "Cooking", time: totalCookingTime },
-        { name: "Minecraft", time: minecraftTime },
-        { name: "Scrolling", time: totalScrollingTime },
+        { name: "Class", time: totalClassTime, cost: 0 },
+        { name: "Dating", time: datingTime, cost: 0 },
+        { name: "Relationship", time: totalRelationshipTime, cost: 0 },
+        { name: "Kids", time: totalKidTime, cost: 0 },
+        { name: "Work", time: hoursWorked, cost: 0 },
+        { name: "Calling", time: callingTime, cost: 0 },
+        { name: "Spiritual", time: totalSpiritualTime, cost: 0 },
+        { name: "Exercise", time: exerciseTime, cost: 0 },
+        { name: "Sleep", time: totalSleepTime, cost: 0 },
+        { name: "Cooking", time: totalCookingTime, cost: 0 },
+        { name: "Minecraft", time: minecraftTime, cost: 0 },
+        { name: "Scrolling", time: totalScrollingTime, cost: 0 },
     ]
 
-    let totalCost = 0;
 
     activities.forEach(activity => {
-        activity.cost = calculateCostOfActivity(activity.time);
-        totalCost += activity.cost;
-        console.log(`${activity.name}: $${activity.cost.toFixed(2)}`)
-    })
+        if (activity.name !== "Work") {
+            activity.cost = calculateCostOfActivity(activity.time);
+            totalCost += activity.cost;
+        }
+    });
 
-    console.log(`Total: $${totalCost.toFixed(2)}`);
+
+    clearTables();
+    displayTables(activities, totalTime, totalCost);
+
+
 })
-
-
 
